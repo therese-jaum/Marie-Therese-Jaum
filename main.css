@@ -103,6 +103,8 @@ nav {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
     padding: 0 4rem;
     position: relative;
     overflow: hidden;
@@ -126,11 +128,41 @@ nav {
 }
 
 .hero-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
+    flex: 1;
+    max-width: 600px;
     position: relative;
     z-index: 1;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInRight 1s ease 0.4s backwards;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero-label {
@@ -140,6 +172,7 @@ nav {
     margin-bottom: 2rem;
     text-transform: uppercase;
     font-weight: 500;
+    animation: fadeInUp 0.8s ease;
 }
 
 .hero h1 {
@@ -148,6 +181,7 @@ nav {
     line-height: 1.1;
     margin-bottom: 2rem;
     letter-spacing: -2px;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
 .hero h1 strong {
@@ -161,12 +195,25 @@ nav {
     max-width: 600px;
     margin-bottom: 3rem;
     line-height: 1.8;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
 .hero-cta {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .btn-primary, .btn-secondary {
@@ -176,8 +223,30 @@ nav {
     font-weight: 500;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary {
@@ -190,6 +259,7 @@ nav {
     background: transparent;
     color: var(--text);
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 }
 
 .btn-secondary {
@@ -199,8 +269,10 @@ nav {
 }
 
 .btn-secondary:hover {
-    border-color: var(--text);
+    border-color: var(--gold);
+    color: var(--gold);
     transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
 }
 
 /* About Section */
@@ -242,6 +314,7 @@ nav {
     overflow: hidden;
     border-radius: 2px;
     position: relative;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-image-container::after {
@@ -253,6 +326,15 @@ nav {
     bottom: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
+    transition: border-color 0.3s;
+}
+
+.about-image-container:hover {
+    transform: scale(1.02);
+}
+
+.about-image-container:hover::after {
+    border-color: var(--gold);
 }
 
 .about-image-container img {
@@ -261,6 +343,11 @@ nav {
     object-fit: cover;
     display: block;
     filter: grayscale(0%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s;
+}
+
+.about-image-container:hover img {
+    transform: scale(1.05);
 }
 
 .about-content p {
@@ -311,6 +398,12 @@ nav {
 
 .stat {
     text-align: left;
+    transition: transform 0.3s;
+    cursor: default;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
 }
 
 .stat-number {
@@ -319,6 +412,12 @@ nav {
     color: var(--gold);
     line-height: 1;
     margin-bottom: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.stat:hover .stat-number {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 .stat-label {
@@ -348,12 +447,29 @@ nav {
 .expertise-item {
     padding: 3rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.4s;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.expertise-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .expertise-item:hover {
     background: rgba(255, 255, 255, 0.02);
     border-color: rgba(212, 175, 55, 0.3);
+    transform: translateX(10px);
+}
+
+.expertise-item:hover::before {
+    width: 100%;
 }
 
 .expertise-number {
@@ -361,6 +477,11 @@ nav {
     color: var(--gold);
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
+    transition: transform 0.3s;
+}
+
+.expertise-item:hover .expertise-number {
+    transform: scale(1.1);
 }
 
 .expertise-item h3 {
@@ -368,6 +489,11 @@ nav {
     font-weight: 500;
     margin-bottom: 1rem;
     letter-spacing: -0.5px;
+    transition: color 0.3s;
+}
+
+.expertise-item:hover h3 {
+    color: var(--gold);
 }
 
 .expertise-item p {
@@ -396,6 +522,18 @@ nav {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
 }
 
 .portfolio-item::before {
@@ -408,10 +546,35 @@ nav {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
     opacity: 0;
     transition: opacity 0.4s;
+    z-index: 1;
+}
+
+.portfolio-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: width 0.6s, height 0.6s;
+    z-index: 1;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-item:hover::before {
     opacity: 1;
+}
+
+.portfolio-item:hover::after {
+    width: 500px;
+    height: 500px;
 }
 
 .portfolio-content {
@@ -423,7 +586,8 @@ nav {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
     transform: translateY(20px);
     opacity: 0;
-    transition: all 0.4s;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
 }
 
 .portfolio-item:hover .portfolio-content {
@@ -437,12 +601,28 @@ nav {
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.4s 0.1s;
+}
+
+.portfolio-item:hover .portfolio-category {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .portfolio-content h3 {
     font-size: 1.8rem;
     font-weight: 500;
     letter-spacing: -0.5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.4s 0.2s;
+}
+
+.portfolio-item:hover .portfolio-content h3 {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* Experience Section */
@@ -569,13 +749,14 @@ nav {
     color: var(--text);
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-bottom-color: var(--gold);
+    transform: translateX(5px);
 }
 
 .form-group textarea {
@@ -586,6 +767,12 @@ nav {
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--text-muted);
+    transition: opacity 0.3s;
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+    opacity: 0.5;
 }
 
 /* Footer */
@@ -628,6 +815,19 @@ footer {
 @media (max-width: 1024px) {
     .nav-container {
         padding: 1.5rem 2rem;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .hero-image {
+        max-width: 400px;
     }
     
     .hero, .about, .expertise, .portfolio, .experience, .contact {
@@ -682,8 +882,16 @@ footer {
         right: 0;
     }
     
+    .hero {
+        padding: 4rem 2rem;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
+    }
+    
+    .hero-cta {
+        justify-content: center;
     }
     
     .stats {
