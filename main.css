@@ -104,7 +104,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 6rem;
     padding: 0 4rem;
     position: relative;
     overflow: hidden;
@@ -114,7 +114,7 @@ nav {
     content: '';
     position: absolute;
     top: 50%;
-    right: -20%;
+    right: -10%;
     width: 600px;
     height: 600px;
     background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
@@ -129,24 +129,25 @@ nav {
 
 .hero-content {
     flex: 1;
-    max-width: 600px;
+    max-width: 500px;
     position: relative;
     z-index: 1;
 }
 
 .hero-image {
-    flex: 1;
-    max-width: 500px;
+    flex: 0 0 auto;
+    width: 720px;
     position: relative;
     z-index: 1;
     animation: fadeInRight 1s ease 0.4s backwards;
+    align-self: flex-end;
+    margin-bottom: -16px;
 }
 
 .hero-image img {
     width: 100%;
     height: auto;
-    border-radius: 2px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    display: block;
     transition: transform 0.5s;
 }
 
@@ -820,6 +821,7 @@ footer {
     .hero {
         flex-direction: column;
         text-align: center;
+        gap: 3rem;
     }
     
     .hero-content {
@@ -827,7 +829,9 @@ footer {
     }
     
     .hero-image {
-        max-width: 400px;
+        width: 320px;
+        align-self: center;
+        margin-bottom: 0;
     }
     
     .hero, .about, .expertise, .portfolio, .experience, .contact {
@@ -888,6 +892,10 @@ footer {
     
     .hero h1 {
         font-size: 2.5rem;
+    }
+    
+    .hero-image {
+        width: 280px;
     }
     
     .hero-cta {
