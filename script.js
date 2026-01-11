@@ -120,16 +120,6 @@ stats.forEach(stat => {
     statsObserver.observe(stat);
 });
 
-// Parallax effect for hero image
-const heroImage = document.querySelector('.hero-image');
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    if (heroImage && scrolled < window.innerHeight) {
-        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-});
-
 // Form submission handler
 const contactForm = document.querySelector('.contact-form');
 

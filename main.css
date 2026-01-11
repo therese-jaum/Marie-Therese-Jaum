@@ -739,6 +739,41 @@ nav {
     font-size: 0.95rem;
 }
 
+/* Software Tools Section */
+.software-section {
+    margin-top: 4rem;
+}
+
+.software-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.software-list span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.software-list span:hover {
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .software-list {
+        gap: 2rem;
+    }
+    
+    .software-list span {
+        font-size: 0.85rem;
+    }
+}
+
 /* Portfolio Section */
 .portfolio {
     padding: 8rem 4rem;
@@ -1033,19 +1068,33 @@ footer {
 
 .social-links {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+    align-items: center;
 }
 
 .social-links a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     transition: color 0.3s;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.social-links a svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s;
 }
 
 .social-links a:hover {
     color: var(--text);
+}
+
+.social-links a:hover svg {
+    transform: translateY(-2px);
 }
 
 /* Responsive */
