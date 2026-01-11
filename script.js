@@ -47,6 +47,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Portfolio items - DECLARE THIS EARLY
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
 // Scroll animations
 const observerOptions = {
     threshold: 0.1,
@@ -120,6 +123,69 @@ stats.forEach(stat => {
     statsObserver.observe(stat);
 });
 
+// Portfolio Modal Functionality
+const portfolioModal = document.getElementById('portfolioModal');
+const modalClose = document.getElementById('modalClose');
+const modalOverlay = document.querySelector('.modal-overlay');
+const modalImage = document.getElementById('modalImage');
+const modalCategory = document.getElementById('modalCategory');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const modalViewBtn = document.getElementById('modalViewBtn');
+
+// Open modal when portfolio item is clicked
+portfolioItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const imgSrc = item.querySelector('img').src;
+        const category = item.dataset.category;
+        const title = item.dataset.title;
+        const description = item.dataset.description;
+        const link = item.dataset.link;
+        
+        modalImage.src = imgSrc;
+        modalCategory.textContent = category;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalViewBtn.href = link;
+        
+        portfolioModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// Close modal function
+function closeModal() {
+    portfolioModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal on close button click
+modalClose.addEventListener('click', closeModal);
+
+// Close modal on overlay click
+modalOverlay.addEventListener('click', closeModal);
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && portfolioModal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+// Prevent modal content click from closing modal
+document.querySelector('.modal-content').addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+// ADDED: Make sure View Live button opens the link
+modalViewBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const link = modalViewBtn.getAttribute('href');
+    if (link && link !== '#') {
+        window.open(link, '_blank');
+    }
+});
+
 // Form submission handler
 const contactForm = document.querySelector('.contact-form');
 
@@ -171,8 +237,6 @@ if (heroTitle) {
 }
 
 // Cursor follow effect for portfolio items
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
 portfolioItems.forEach(item => {
     item.addEventListener('mousemove', (e) => {
         const rect = item.getBoundingClientRect();
