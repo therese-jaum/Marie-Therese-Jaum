@@ -3,71 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Marie Therese Jaum | Graphic Designer Portfolio</title>
-    <meta name="description" content="Marie Therese Jaum - Professional Graphic Designer specializing in brand identity, editorial design, and visual storytelling. View my portfolio of creative work.">
-    <meta name="keywords" content="graphic designer, brand identity, editorial design, visual storytelling, portfolio, Marie Therese Jaum, Bohol, Philippines, logo design, UI/UX design">
-    <meta name="author" content="Marie Therese Jaum">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags (Social Sharing) -->
-    <meta property="og:title" content="Marie Therese Jaum | Graphic Designer">
-    <meta property="og:description" content="Creating Visual Excellence - Professional graphic design portfolio showcasing brand identity, editorial design, and creative projects.">
-    <meta property="og:image" content="https://yourwebsite.com/assets/social-preview.jpg">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Marie Therese Jaum | Graphic Designer">
-    <meta name="twitter:description" content="Creating Visual Excellence - Professional graphic design portfolio">
-    <meta name="twitter:image" content="https://yourwebsite.com/assets/social-preview.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    
-    <!-- Preconnect to External Resources -->
+    <title>Marie Therese Jaum | Graphic Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="main.css">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Marie Therese Nalam Jaum",
-      "jobTitle": "Graphic Designer",
-      "url": "https://yourwebsite.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/marie-therese-jaum-59b658351",
-        "https://www.behance.net/theresejaum",
-        "https://www.instagram.com/thereseee_10"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bohol",
-        "addressCountry": "Philippines"
-      },
-      "email": "theresejaum@gmail.com",
-      "telephone": "+639165318782"
-    }
-    </script>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">MTNJ</div>
-            <div class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -75,13 +22,13 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -92,7 +39,7 @@
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                 </svg>
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </button>
@@ -101,7 +48,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="circuit-bg" aria-hidden="true">
+        <div class="circuit-bg">
             <div class="circuit-line"></div>
             <div class="circuit-line"></div>
             <div class="circuit-line"></div>
@@ -122,8 +69,8 @@
             </p>
             <div class="hero-cta">
                 <a href="#portfolio" class="btn-primary">View Portfolio</a>
-                <a href="assets/Marie_Therese_Nalam_Jaum_Resume.pdf" class="btn-secondary" download aria-label="Download CV">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;" aria-hidden="true">
+                <a href="assets/Marie_Therese_Nalam_Jaum_Resume.pdf" class="btn-secondary" download>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
                         <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -134,7 +81,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="assets/me2.png" alt="Marie Therese Jaum - Graphic Designer portrait" width="520" height="693">
+            <img src="assets/me2.png" alt="Design Work">
         </div>
     </section>
 
@@ -146,12 +93,12 @@
         </div>
         <div class="about-grid">
             <div class="about-image-container">
-                <img src="assets/atit.png" alt="Marie Therese Jaum professional photo" loading="lazy" width="400" height="533">
+                <img src="assets/atit.png" alt="Marie Therese Jaum">
             </div>
             <div>
                 <div class="about-content">
                     <p>
-                        I'm Marie Therese Nalam Jaum, a graphic designer focused on brand identity, editorial design, and visual storytelling. I turn complex ideas into powerful visual narratives through strategic thinking and confident creative execution across print, digital, and multimedia design.
+                        I’m Marie Therese Nalam Jaum, a graphic designer focused on brand identity, editorial design, and visual storytelling. I turn complex ideas into powerful visual narratives through strategic thinking and confident creative execution across print, digital, and multimedia design.
                     </p>
                     <p>
                         Driven by clarity and purpose, I believe great design goes beyond aesthetics it communicates, connects, and leaves a lasting impact. I approach every project with intention, ensuring each visual decision supports the message, the audience, and the overall brand experience.
@@ -187,7 +134,35 @@
             </div>
         </div>
     </section>
-
+<!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="experience-container">
+            <div class="section-header">
+                <div class="section-label">Experience</div>
+                <h2 class="section-title">Professional Journey</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2023-2025</div>
+                    <h3>Layout Artist & Graphic Artist</h3>
+                    <div class="timeline-company">The Campus Access, BISU-Balilihan</div>
+                    <p>Led visual content creation for campus publication, designing layouts, covers, infographics, and branding materials. Collaborated with editorial teams and managed production workflow from concept to final delivery.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">FEBRUARY,2025-MAY,2025</div>
+                    <h3>Design Intern</h3>
+                    <div class="timeline-company">Municipal Planning & Development Office, LGU Balilihan</div>
+                    <p>Designed book covers, vehicle graphics, and presentation materials. Provided photography support and created visual assets for public information campaigns.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">AUGUST,2025-DECEMBER,2025</div>
+                    <h3>Administrative Support Staff</h3>
+                    <div class="timeline-company">Department of Education (DepEd)</div>
+                    <p>Delivered comprehensive administrative support including document management, record keeping, and coordination of office operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Expertise Section -->
     <section class="expertise" id="expertise">
         <div class="expertise-container">
@@ -228,30 +203,31 @@
                 </div>
             </div>
             
-            <!-- Software Tools Section -->
+            <!-- Software Tools Section WITH LOGOS -->
             <div class="software-section">
                 <div class="section-label" style="text-align: center; margin-top: 4rem; margin-bottom: 2rem;">Design Tools</div>
                 <div class="software-list">
                     <div class="software-tool">
-                        <img src="assets/logos/icons8-photoshop-48.png" alt="Adobe Photoshop logo" loading="lazy" width="60" height="60">
+                        <img src="assets/logos/icons8-photoshop-48.png" alt="Adobe Photoshop" onerror="this.style.display='none'">
                         <span>Adobe Photoshop</span>
                     </div>
                     <div class="software-tool">
-                        <img src="assets/logos/icons8-illustrator-48.png" alt="Adobe Illustrator logo" loading="lazy" width="60" height="60">
+                        <img src="assets/logos/icons8-illustrator-48.png" alt="Adobe Illustrator" onerror="this.style.display='none'">
                         <span>Adobe Illustrator</span>
                     </div>
                     <div class="software-tool">
-                        <img src="assets/logos/icons8-adobe-lightroom-48.png" alt="Adobe Lightroom logo" loading="lazy" width="60" height="60">
+                        <img src="assets/logos/icons8-adobe-lightroom-48.png" alt="Adobe Lightroom" onerror="this.style.display='none'">
                         <span>Adobe Lightroom</span>
                     </div>
                     <div class="software-tool">
-                        <img src="assets/logos/icons8-figma-48.png" alt="Figma logo" loading="lazy" width="60" height="60">
+                        <img src="assets/logos/icons8-figma-48.png" alt="Figma" onerror="this.style.display='none'">
                         <span>Figma</span>
                     </div>
                     <div class="software-tool">
-                        <img src="assets/logos/icons8-canva-48.png" alt="Canva logo" loading="lazy" width="60" height="60">
+                        <img src="assets/logos/icons8-canva-48.png" alt="Canva" onerror="this.style.display='none'">
                         <span>Canva</span>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -269,7 +245,7 @@
                  data-title="Jersey and Uniform Design" 
                  data-description="Complete brand identity system including logo design, color palette, typography, and brand guidelines for a modern corporation."
                  data-link="https://www.behance.net/gallery/242156511/Sublimation-Shirts">
-                <img src="assets/portfolio cover 2.png" alt="Jersey and uniform sublimation design project" loading="lazy" width="600" height="450">
+                <img src="assets/portfolio cover 2.png" alt="Sublimation Design Project">
                 <div class="portfolio-content">
                     <div class="portfolio-category">Sublimation Design</div>
                     <h3>Jersey and Uniform Design</h3>
@@ -280,7 +256,7 @@
                  data-title="Therese Ideas Brand Identity" 
                  data-description="Brand identity design for 'Therese Ideas', a creative agency, focusing on modern aesthetics and versatile applications."
                  data-link="https://www.behance.net/gallery/229780297/Therese-Ideas">
-                <img src="assets/mtnj.jpg" alt="Therese Ideas brand identity design project" loading="lazy" width="600" height="450">
+                <img src="assets/mtnj.jpg" alt="Editorial Design Project">
                 <div class="portfolio-content">
                     <div class="portfolio-category">Brand Identity Design</div>
                     <h3>Therese Ideas Brand Identity</h3>
@@ -291,7 +267,7 @@
                  data-title="Municipal Vehicle Graphics" 
                  data-description="Vehicle wrap design and branding for municipal government vehicles, ensuring visibility and professional representation."
                  data-link="https://www.behance.net/gallery/230016717/DRMM-RESCUE-VEHICLES">
-                <img src="assets/drrm.png" alt="Municipal DRRM rescue vehicle graphics design" loading="lazy" width="600" height="450">
+                <img src="assets/drrm.png" alt="Government Project">
                 <div class="portfolio-content">
                     <div class="portfolio-category">Government</div>
                     <h3>Municipal Vehicle Graphics</h3>
@@ -302,7 +278,7 @@
                  data-title="Rapid Rush: Mulitiplayer Mayhem Game Design" 
                  data-description="Concept art and promotional materials for a beta indie multiplayer game capstone project, featuring vibrant visuals and character design, developed using Godot Engine."
                  data-link="https://www.canva.com/design/DAG-XrxTMqA/OqW9aYkxrZlPaDQmvYuwfg/edit?utm_content=DAG-XrxTMqA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">
-                <img src="assets/rapid.png" alt="Rapid Rush multiplayer game design project" loading="lazy" width="600" height="450">
+                <img src="assets/rapid.png" alt="Publication Project">
                 <div class="portfolio-content">
                     <div class="portfolio-category">Game Design</div>
                     <h3>Rapid Rush: Mulitiplayer Mayhem Game Design</h3>
@@ -313,7 +289,7 @@
                  data-title="Infographics for Campus Publication" 
                  data-description="Infographics created for campus publication to visually communicate complex information in an engaging and easily digestible format."
                  data-link="https://www.behance.net/gallery/242080775/My-Infographics-through-publication-journey">
-                <img src="assets/cover3.png" alt="Campus publication infographics design collection" loading="lazy" width="600" height="450">
+                <img src="assets/cover3.png" alt="Publication Project">
                 <div class="portfolio-content">
                     <div class="portfolio-category">Infographics Design</div>
                     <h3>Infographics for Campus Publication</h3>
@@ -324,7 +300,7 @@
                  data-title="Collection of Logo Designs" 
                  data-description=" A curated collection of logo designs showcasing versatility and creativity across various industries and styles."
                  data-link="https://www.canva.com/design/DAGsM3bYi7A/A2rqEMKYtLYEUjcafwxB8g/edit?utm_content=DAGsM3bYi7A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">
-                <img src="assets/LOGO FOLIO.png" alt="Logo design portfolio collection" loading="lazy" width="600" height="450">
+                <img src="assets/LOGO FOLIO.png" alt="Publication Project">
                 <div class="portfolio-content">
                     <div class="portfolio-category">Logo Folio</div>
                     <h3>Collection of Logo Designs</h3>
@@ -334,11 +310,11 @@
     </section>
 
     <!-- Portfolio Modal -->
-    <div class="portfolio-modal" id="portfolioModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="portfolio-modal" id="portfolioModal">
         <div class="modal-overlay"></div>
         <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <button class="modal-close" id="modalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -352,7 +328,7 @@
                 <p class="modal-description" id="modalDescription"></p>
                 <a href="#" class="btn-primary modal-view-btn" id="modalViewBtn" target="_blank" rel="noopener noreferrer">
                     View Live
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 8px;" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 8px;">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15 3 21 3 21 9"></polyline>
                         <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -371,19 +347,19 @@
             </div>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-year">2023 — 2025</div>
+                    <div class="timeline-year">2023-2025</div>
                     <h3>Layout Artist & Graphic Artist</h3>
                     <div class="timeline-company">The Campus Access, BISU-Balilihan</div>
                     <p>Led visual content creation for campus publication, designing layouts, covers, infographics, and branding materials. Collaborated with editorial teams and managed production workflow from concept to final delivery.</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
+                    <div class="timeline-year">FEBRUARY,2025-MAY,2025</div>
                     <h3>Design Intern</h3>
                     <div class="timeline-company">Municipal Planning & Development Office, LGU Balilihan</div>
                     <p>Designed book covers, vehicle graphics, and presentation materials. Provided photography support and created visual assets for public information campaigns.</p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
+                    <div class="timeline-year">AUGUST,2025-DECEMBER,2025</div>
                     <h3>Administrative Support Staff</h3>
                     <div class="timeline-company">Department of Education (DepEd)</div>
                     <p>Delivered comprehensive administrative support including document management, record keeping, and coordination of office operations.</p>
@@ -406,22 +382,22 @@
                 </div>
                 <div class="contact-item">
                     <h3>Phone</h3>
-                    <a href="tel:+639165318782">0916 531 8782</a>
+                    <a href="tel:09165318782">0916 531 8782</a>
                 </div>
                 <div class="contact-item">
                     <h3>Location</h3>
-                    <a>Bohol, Philippines</a>
+                    <a>6343 Poblacion, Catigbian, Bohol</a>
                 </div>
             </div>
             <form class="contact-form" action="https://formspree.io/f/mkogdgjw" method="POST">
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required aria-label="Your email">
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" required aria-label="Your message"></textarea>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="btn-primary">Send Message</button>
             </form>
@@ -433,18 +409,28 @@
         <div class="footer-container">
             <div class="footer-text">© 2025 Marie Therese Jaum. All rights reserved.</div>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/marie-therese-jaum-59b658351" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <a href="https://www.linkedin.com/in/marie-therese-jaum-59b658351" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
                     <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
                     </svg>
                     LinkedIn
                 </a>
-                <a href="https://www.behance.net/theresejaum" target="_blank" rel="noopener noreferrer" aria-label="Behance portfolio">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <a href="https://www.behance.net/theresejaum" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-behance" viewBox="0 0 16 16">
                     <path d="M4.654 3c.461 0 .887.035 1.278.14.39.07.711.216.996.391s.497.426.641.747c.14.32.216.711.216 1.137 0 .496-.106.922-.356 1.242-.215.32-.566.606-.997.817.606.176 1.067.496 1.348.922s.461.957.461 1.563c0 .496-.105.922-.285 1.278a2.3 2.3 0 0 1-.782.887c-.32.215-.711.39-1.137.496a5.3 5.3 0 0 1-1.278.176L0 12.803V3zm-.285 3.978c.39 0 .71-.105.957-.285.246-.18.355-.497.355-.887 0-.216-.035-.426-.105-.567a1 1 0 0 0-.32-.355 1.8 1.8 0 0 0-.461-.176c-.176-.035-.356-.035-.567-.035H2.17v2.31c0-.005 2.2-.005 2.2-.005zm.105 4.193c.215 0 .426-.035.606-.07.176-.035.356-.106.496-.216s.25-.215.356-.39c.07-.176.14-.391.14-.641 0-.496-.14-.852-.426-1.102-.285-.215-.676-.32-1.137-.32H2.17v2.734h2.305zm6.858-.035q.428.427 1.278.426c.39 0 .746-.106 1.032-.286q.426-.32.53-.64h1.74c-.286.851-.712 1.457-1.278 1.848-.566.355-1.243.566-2.06.566a4.1 4.1 0 0 1-1.527-.285 2.8 2.8 0 0 1-1.137-.782 2.85 2.85 0 0 1-.712-1.172c-.175-.461-.25-.957-.25-1.528 0-.531.07-1.032.25-1.493.18-.46.426-.852.747-1.207.32-.32.711-.606 1.137-.782a4 4 0 0 1 1.493-.285c.606 0 1.137.105 1.598.355.46.25.817.532 1.102.958.285.39.496.851.641 1.348.07.496.105.996.07 1.563h-5.15c0 .58.21 1.11.496 1.396m2.24-3.732c-.25-.25-.642-.391-1.103-.391-.32 0-.566.07-.781.176s-.356.25-.496.39a.96.96 0 0 0-.25.497c-.036.175-.07.32-.07.46h3.196c-.07-.526-.25-.882-.497-1.132zm-3.127-3.728h3.978v.957h-3.978z"/>
                     </svg>
                     Behance
                 </a>
-                <a href="https://www.instagram.com/thereseee_10/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                   <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0
+                <a href="https://www.instagram.com/thereseee_10/?hl=en" target="_blank" rel="noopener noreferrer">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                   <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                   </svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
