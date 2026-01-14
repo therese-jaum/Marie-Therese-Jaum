@@ -706,7 +706,8 @@ nav {
 /* Responsive adjustments */
 @media (max-width: 1024px) {
     .hero-image {
-        width: 400px;
+        width: 500px;
+        height: 60vh;
         align-self: center;
         margin-bottom: 0;
     }
@@ -714,14 +715,23 @@ nav {
 
 @media (max-width: 768px) {
     .hero-image {
-        height: 450px;
-       max-width: 90%;
+        height: 65vh;
+        width: 100%;
+        max-width: 500px;
     }
 }
+
 @media (max-width: 480px) {
     .hero-image {
-        height: 400px;
-        margin: 95%;
+        height: 55vh;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .hero-image img {
+        object-fit: cover;
+        object-position: center top;
     }
 }
 @keyframes fadeInRight {
