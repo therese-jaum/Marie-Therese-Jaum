@@ -6,6 +6,11 @@ const html = document.documentElement;
 const currentTheme = localStorage.getItem('theme') || 'dark';
 html.setAttribute('data-theme', currentTheme);
 
+// Update navbar on initial load
+window.addEventListener('load', () => {
+    window.dispatchEvent(new Event('scroll'));
+});
+
 themeToggle.addEventListener('click', () => {
     const theme = html.getAttribute('data-theme');
     const newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -215,23 +220,39 @@ if (contactForm) {
 // Add active state to nav links based on scroll position
 const sections = document.querySelectorAll('section[id]');
 
-window.addEventListener('scroll', () => {
+function updateActiveNavLink() {
     let current = '';
+    const scrollPosition = window.pageYOffset;
+    
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
+        const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = sectionId;
         }
     });
 
+    // If at top of page, set home as active
+    if (scrollPosition < 100) {
+        current = 'home';
+    }
+
     navLinks.querySelectorAll('a').forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
             link.classList.add('active');
         }
     });
-});
+}
+
+// Run on scroll
+window.addEventListener('scroll', updateActiveNavLink);
+
+// Run on page load
+window.addEventListener('load', updateActiveNavLink);
 
 // Typing effect for hero title (optional enhancement)
 const heroTitle = document.querySelector('.hero h1 strong');
