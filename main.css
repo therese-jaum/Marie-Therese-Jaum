@@ -1711,65 +1711,7 @@ padding: 1.5rem 2rem;
     gap: 2rem;
 }
 }
-@media (max-width: 768px) {
-.menu-toggle {
-display: flex;
-}
-.theme-toggle {
-    margin-left: auto;
-    margin-right: 1rem;
-}
 
-.nav-links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 80%;
-    max-width: 400px;
-    background: var(--secondary);
-    flex-direction: column;
-    padding: 6rem 3rem;
-    gap: 2rem;
-    transition: right 0.4s;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="light"] .nav-links {
-    background: var(--primary);
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links.active {
-    right: 0;
-}
-
-.hero {
-    padding: 4rem 2rem;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-}
-
-.hero-image {
-    width: 350px;
-}
-
-.hero-cta {
-    justify-content: center;
-}
-
-.stats {
-    grid-template-columns: 1fr;
-}
-
-.footer-container {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-}
-}
 /* Contact Section */
 .contact {
     padding: 8rem 4rem;
@@ -1873,15 +1815,17 @@ display: flex;
         font-size: 1.2rem;
     }
 }
-/* Mobile Navigation - Smaller Width */
+/* Mobile Navigation - KEEP ONLY THIS VERSION */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
+        z-index: 10001;
     }
     
     .theme-toggle {
         margin-left: auto;
         margin-right: 1rem;
+        z-index: 10001;
     }
 
     .nav-links {
@@ -1889,14 +1833,15 @@ display: flex;
         top: 0;
         right: -100%;
         height: 100vh;
-        width: 70%;  /* Changed from 80% to 70% */
-        max-width: 320px;  /* Changed from 400px to 320px */
+        width: 70%;
+        max-width: 320px;
         background: var(--secondary);
         flex-direction: column;
-        padding: 6rem 2.5rem;  /* Reduced horizontal padding */
+        padding: 6rem 2.5rem;
         gap: 2rem;
-        transition: right 0.4s;
+        transition: right 0.4s ease;
         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+        z-index: 10000;
     }
 
     [data-theme="light"] .nav-links {
@@ -1909,8 +1854,11 @@ display: flex;
     }
     
     .nav-links a {
-        font-size: 1rem;  /* Slightly adjusted for better readability */
+        font-size: 1.1rem;
     }
+
+    /* Other mobile styles... */
+}
 
     .hero {
         padding: 4rem 2rem;
@@ -1937,7 +1885,7 @@ display: flex;
         gap: 2rem;
         text-align: center;
     }
-}/* Navigation Active State */
+/* Navigation Active State */
 .nav-links a.active {
     color: var(--text) !important;
 }

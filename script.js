@@ -1,9 +1,9 @@
-// Theme toggle
+// Theme toggle - FIXED: No localStorage
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
-// Check for saved theme preference or default to 'dark'
-const currentTheme = localStorage.getItem('theme') || 'dark';
+// Set default theme to 'dark'
+let currentTheme = 'dark';
 html.setAttribute('data-theme', currentTheme);
 
 // Update navbar on initial load
@@ -12,11 +12,8 @@ window.addEventListener('load', () => {
 });
 
 themeToggle.addEventListener('click', () => {
-    const theme = html.getAttribute('data-theme');
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', currentTheme);
     
     // Update navbar colors immediately
     setTimeout(() => {
@@ -24,26 +21,48 @@ themeToggle.addEventListener('click', () => {
     }, 50);
 });
 
-// Mobile menu toggle
+// Mobile menu toggle - FIXED
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 
-menuToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    
     navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    
     const spans = menuToggle.querySelectorAll('span');
-    spans[0].style.transform = navLinks.classList.contains('active') ? 'rotate(45deg) translateY(8px)' : '';
-    spans[1].style.opacity = navLinks.classList.contains('active') ? '0' : '1';
-    spans[2].style.transform = navLinks.classList.contains('active') ? 'rotate(-45deg) translateY(-8px)' : '';
+    if (navLinks.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translateY(8px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+    } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = '';
+    }
 });
 
 // Close menu on link click
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
         const spans = menuToggle.querySelectorAll('span');
         spans.forEach(span => span.style.transform = '');
         spans[1].style.opacity = '1';
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        const spans = menuToggle.querySelectorAll('span');
+        spans.forEach(span => span.style.transform = '');
+        spans[1].style.opacity = '1';
+    }
 });
 
 // Smooth scrolling
@@ -198,7 +217,7 @@ document.querySelector('.modal-content').addEventListener('click', (e) => {
     e.stopPropagation();
 });
 
-// ADDED: Make sure View Live button opens the link
+// Make sure View Live button opens the link
 modalViewBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const link = modalViewBtn.getAttribute('href');
@@ -293,7 +312,7 @@ const timelineObserver = new IntersectionObserver((entries) => {
             setTimeout(() => {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0) scale(1)';
-            }, index * 150); // Stagger animation by 150ms
+            }, index * 150);
             timelineObserver.unobserve(entry.target);
         }
     });
