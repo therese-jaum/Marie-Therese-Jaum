@@ -12,6 +12,11 @@ themeToggle.addEventListener('click', () => {
     
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    
+    // Update navbar colors immediately
+    setTimeout(() => {
+        window.dispatchEvent(new Event('scroll'));
+    }, 50);
 });
 
 // Mobile menu toggle
@@ -72,19 +77,30 @@ document.querySelectorAll('.expertise-item, .portfolio-item, .timeline-item').fo
     observer.observe(el);
 });
 
-// Navbar scroll effect
+// Navbar scroll effect - FIXED FOR LIGHT/DARK MODE
 const navbar = document.querySelector('nav');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
+    const isLightMode = html.getAttribute('data-theme') === 'light';
     
     if (currentScroll > 50) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        if (isLightMode) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        }
     } else {
-        navbar.style.background = 'rgba(10, 10, 10, 0.8)';
-        navbar.style.boxShadow = 'none';
+        if (isLightMode) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+            navbar.style.boxShadow = 'none';
+        } else {
+            navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+            navbar.style.boxShadow = 'none';
+        }
     }
     
     lastScroll = currentScroll;
@@ -246,4 +262,25 @@ portfolioItems.forEach(item => {
         item.style.setProperty('--mouse-x', `${x}px`);
         item.style.setProperty('--mouse-y', `${y}px`);
     });
+});
+
+// Timeline items staggered animation on scroll
+const timelineItems = document.querySelectorAll('.timeline-item');
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+            }, index * 150); // Stagger animation by 150ms
+            timelineObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+timelineItems.forEach(item => {
+    timelineObserver.observe(item);
 });
