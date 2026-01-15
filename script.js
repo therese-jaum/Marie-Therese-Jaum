@@ -79,26 +79,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Portfolio items - DECLARE THIS EARLY
 const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+// Enhanced Scroll Animations - Bidirectional
+const scrollAnimationOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+// Main scroll observer with bidirectional animation
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate-in');
+            entry.target.classList.remove('animate-out');
+        } else {
+            entry.target.classList.add('animate-out');
+            entry.target.classList.remove('animate-in');
         }
     });
-}, observerOptions);
+}, scrollAnimationOptions);
 
-document.querySelectorAll('.expertise-item, .portfolio-item, .timeline-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// Apply to all animated elements
+const animatedElements = document.querySelectorAll(`
+    .expertise-item, 
+    .portfolio-item, 
+    .timeline-item,
+    .about-image-container,
+    .about-content,
+    .education-section,
+    .stat,
+    .contact-info,
+    .contact-form,
+    .section-header
+`);
+
+animatedElements.forEach(el => {
+    el.classList.add('scroll-animate');
+    scrollObserver.observe(el);
+});
+
+// Staggered animation for grid items
+const expertiseItems = document.querySelectorAll('.expertise-item');
+const portfolioItemsAnim = document.querySelectorAll('.portfolio-item');
+
+expertiseItems.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.1}s`;
+});
+
+portfolioItemsAnim.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.15}s`;
 });
 
 // Navbar scroll effect - FIXED FOR LIGHT/DARK MODE

@@ -1970,3 +1970,115 @@ padding: 1.5rem 2rem;
 [data-theme="light"] .nav-links a.active {
     color: var(--text) !important;
 }
+/* Scroll Animation Styles */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate.animate-out {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Different animation directions for variety */
+.about-image-container.scroll-animate {
+    transform: translateX(-50px);
+}
+
+.about-image-container.animate-in {
+    transform: translateX(0);
+}
+
+.about-image-container.animate-out {
+    transform: translateX(-30px);
+}
+
+.about-content.scroll-animate,
+.contact-form.scroll-animate {
+    transform: translateX(50px);
+}
+
+.about-content.animate-in,
+.contact-form.animate-in {
+    transform: translateX(0);
+}
+
+.about-content.animate-out,
+.contact-form.animate-out {
+    transform: translateX(30px);
+}
+
+/* Stagger effect is handled via inline styles in JS */
+.expertise-item.scroll-animate,
+.portfolio-item.scroll-animate {
+    transform: translateY(60px) scale(0.95);
+}
+
+.expertise-item.animate-in,
+.portfolio-item.animate-in {
+    transform: translateY(0) scale(1);
+}
+
+.expertise-item.animate-out,
+.portfolio-item.animate-out {
+    transform: translateY(40px) scale(0.97);
+}
+
+/* Timeline special animation */
+.timeline-item.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+}
+
+.timeline-item.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.timeline-item.animate-out {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+}
+
+/* Stats counter animation */
+.stat.scroll-animate {
+    transform: translateY(40px) rotate(-5deg);
+}
+
+.stat.animate-in {
+    transform: translateY(0) rotate(0deg);
+}
+
+.stat.animate-out {
+    transform: translateY(30px) rotate(-3deg);
+}
+
+/* Section headers */
+.section-header.scroll-animate {
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.section-header.animate-in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.section-header.animate-out {
+    transform: translateY(20px);
+    opacity: 0.3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
