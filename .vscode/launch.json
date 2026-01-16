@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "c:\\Users\\User\\Downloads\\Compressed\\mine\\Marie-Therese-Jaum\\index.html"
+            "file": "c:\\Users\\User\\Documents\\Marie-Therese-Jaum\\index.html"
         }
     ]
 }
