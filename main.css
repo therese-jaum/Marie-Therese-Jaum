@@ -1637,7 +1637,7 @@ padding: 3rem 4rem;
 border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 .footer-container {
-max-width: 1400px;
+max-width: 1200px;
 margin: 0 auto;
 display: flex;
 justify-content: space-between;
@@ -1663,8 +1663,8 @@ align-items: center;
 gap: 0.6rem;
 }
 .social-links a svg {
-width: 22px;
-height: 22px;
+width: 20px;
+height: 20px;
 transition: transform 0.3s;
 }
 .social-links a:hover {
