@@ -866,11 +866,11 @@ nav {
 }
 
 .btn-primary, .btn-secondary {
-    padding: 1rem 2.5rem;
+    padding: 0.80rem .25rem;
     text-decoration: none;
     border-radius: 0;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     letter-spacing: 0.5px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid;
