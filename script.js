@@ -65,13 +65,17 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Smooth scrolling
+// Smooth scrolling - FIXED to only work with # anchors
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const href = this.getAttribute('href');
+        // Only handle internal anchor links (starting with #)
+        if (href && href.startsWith('#') && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });
@@ -201,6 +205,18 @@ const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
 const modalViewBtn = document.getElementById('modalViewBtn');
 
+// Function to move button based on screen size
+function adjustModalButton() {
+    const modalImageContainer = document.querySelector('.modal-image-container');
+    const modalInfo = document.querySelector('.modal-info');
+    
+    if (window.innerWidth <= 1024) {
+        modalImageContainer.appendChild(modalViewBtn);
+    } else {
+        modalInfo.appendChild(modalViewBtn);
+    }
+}
+
 // Open modal when portfolio item is clicked
 portfolioItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -214,11 +230,27 @@ portfolioItems.forEach(item => {
         modalCategory.textContent = category;
         modalTitle.textContent = title;
         modalDescription.textContent = description;
-        modalViewBtn.href = link;
+        
+        // FIXED: Properly set the href and show/hide button
+        if (link && link !== '#' && link !== '') {
+            modalViewBtn.href = link;
+            modalViewBtn.style.display = 'inline-flex';
+        } else {
+            modalViewBtn.href = '#';
+            modalViewBtn.style.display = 'none';
+        }
         
         portfolioModal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        adjustModalButton();
     });
+});
+
+window.addEventListener('resize', () => {
+    if (portfolioModal.classList.contains('active')) {
+        adjustModalButton();
+    }
 });
 
 // Close modal function
@@ -245,13 +277,15 @@ document.querySelector('.modal-content').addEventListener('click', (e) => {
     e.stopPropagation();
 });
 
-// Make sure View Live button opens the link
+// FIXED: View Live button - removed preventDefault, let it work naturally
 modalViewBtn.addEventListener('click', (e) => {
-    e.preventDefault();
     const link = modalViewBtn.getAttribute('href');
-    if (link && link !== '#') {
-        window.open(link, '_blank');
+    // Only prevent default if link is empty or #
+    if (!link || link === '#' || link === '') {
+        e.preventDefault();
+        return;
     }
+    // Otherwise let the link open naturally in new tab (target="_blank" is in HTML)
 });
 
 // Form submission handler
@@ -351,4 +385,24 @@ const timelineObserver = new IntersectionObserver((entries) => {
 
 timelineItems.forEach(item => {
     timelineObserver.observe(item);
+});
+
+// Scroll to Top Button Functionality
+const scrollTopBtn = document.getElementById('scrollTop');
+
+// Show/hide scroll to top button
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 500) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
+
+// Smooth scroll to top when clicked
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });

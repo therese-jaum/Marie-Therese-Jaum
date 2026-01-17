@@ -340,6 +340,75 @@ body::after {
         height: 40px;
     }
 }
+/* Mobile Modal - Button in Image */
+@media (max-width: 1024px) {
+    .modal-content {
+        grid-template-columns: 1fr;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    
+    .modal-image-container {
+        height: 400px;
+        min-height: 400px;
+        position: relative;
+    }
+    
+    .modal-image-container .modal-view-btn {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: inline-flex;
+    }
+    
+    .modal-info {
+        padding: 3rem 2rem;
+    }
+    
+    .modal-info .modal-view-btn {
+        display: none !important;
+    }
+    
+    .modal-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+    
+    .modal-image-container {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    .modal-image-container .modal-view-btn {
+        bottom: 1.5rem;
+    }
+    
+    .modal-info {
+        padding: 2rem 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.8rem;
+    }
+    
+    .modal-description {
+        font-size: 1rem;
+    }
+    
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+}
 
 /* Navigation */
 nav {
@@ -839,7 +908,7 @@ nav {
 }
 
 .btn-primary:hover {
-    background: transparent;
+    background: black;
     color: var(--text);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
@@ -1092,14 +1161,13 @@ transform: translateY(-10px);
 width: 60px;
 height: 60px;
 object-fit: contain;
-filter: grayscale(100%) brightness(0.8);
 transition: all 0.3s ease;
 }
 [data-theme="light"] .software-tool img {
-filter: grayscale(100%) brightness(0.5);
+filter: none;
 }
 .software-tool:hover img {
-filter: grayscale(0%) brightness(1);
+filter: none;
 transform: scale(1.1);
 }
 .software-tool span {
@@ -1160,7 +1228,7 @@ top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+background: rgba(0, 0, 0, 0.6);
 opacity: 0;
 transition: opacity 0.4s;
 z-index: 1;
@@ -1184,6 +1252,7 @@ box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 .portfolio-item:hover::before {
 opacity: 1;
+background: rgba(0, 0, 0, 0.7);
 }
 .portfolio-item:hover::after {
 width: 500px;
@@ -1376,7 +1445,22 @@ opacity: 1;
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.08);
 }
+/* Portfolio text white in light theme */
+[data-theme="light"] .portfolio-item .portfolio-category {
+    color: white;
+}
 
+[data-theme="light"] .portfolio-item .portfolio-content h3 {
+    color: white;
+}
+
+[data-theme="light"] .portfolio-item::before {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .portfolio-item:hover::before {
+    background: rgba(0, 0, 0, 0.75);
+}
 /* Alternate left and right */
 .timeline-item:nth-child(odd) {
     left: 0;
@@ -2089,50 +2173,84 @@ padding: 1.5rem 2rem;
     padding: 0;
     box-sizing: border-box;
 }
-/*portfolio trappings*/
-/*.portfolio-item {
-    position: relative;
-}
 
-.portfolio-item::before {
-    content: 'Click to see the project';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.9);
-    color: var(--gold);
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    z-index: 10;
-    white-space: nowrap;
-    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-    border: 1px solid var(--gold);
+    visibility: hidden;
+    transform: translateY(100px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
 }
 
-.portfolio-item:hover::before {
+.scroll-top.visible {
     opacity: 1;
-    animation: cloudFloat 5s ease-in-out infinite;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-@keyframes cloudFloat {
+.scroll-top:hover {
+    background: transparent;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+}
+
+.scroll-top svg {
+    color: var(--primary);
+    transition: color 0.3s;
+}
+
+.scroll-top:hover svg {
+    color: var(--gold);
+    animation: arrowBounce 0.6s ease infinite;
+}
+
+@keyframes arrowBounce {
     0%, 100% {
-        transform: translate(-50%, -50%);
-    }
-    25% {
-        transform: translate(-48%, -52%);
+        transform: translateY(0);
     }
     50% {
-        transform: translate(-52%, -48%);
+        transform: translateY(-5px);
     }
-    75% {
-        transform: translate(-48%, -52%);
-    } 
 }
-    
+
+[data-theme="light"] .scroll-top {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+[data-theme="light"] .scroll-top svg {
+    color: white;
+}
+
+[data-theme="light"] .scroll-top:hover svg {
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .scroll-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Footer */
+footer {
+padding: 3rem 4rem;
+border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
